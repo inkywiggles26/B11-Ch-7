@@ -1,0 +1,76 @@
+/**
+   A simulated traffic light.
+*/
+public class TrafficLight
+{
+   private String color;
+   private int reds;
+   /**
+      Constructs a green traffic light.
+   */
+   public TrafficLight()
+   {
+      this.color = "green";
+
+      reds = 0;
+   }
+   
+   /**
+      Constructs a traffic light.
+      @param initialColor the initial color "green", "yellow", or "red"
+   */
+   public TrafficLight(String initialColor)
+   {
+      this.color = initialColor;
+
+if (initialColor == "red") {
+
+reds = 1;
+
+} else {
+
+reds = 0;
+
+}
+   }
+ 
+   /**
+      Moves this traffic light to the next color.
+   */
+   public void next()
+   {
+      if (this.color == "green") {
+
+this.color = "yellow";
+
+} else if (this.color == "yellow") {
+
+this.color = "red";
+
+reds++;
+
+} else if (this.color == "red") {
+
+this.color = "green";
+
+}/* Your code goes here */
+   }
+ 
+   /**
+      Returns the current color of this traffic light.
+      @return the current color
+   */
+   public String getColor()
+   {
+      return this.color;
+   }
+   
+   /**
+      Counts how often this traffic light has been red.
+      @return the number of times this traffic light has been red
+   */
+   public int getReds()
+   {
+      return this.reds;
+   }
+}
