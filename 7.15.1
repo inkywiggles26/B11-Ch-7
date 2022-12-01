@@ -1,0 +1,72 @@
+/**
+   A rental car with static methods to count rented and available cars.
+*/
+public class RentalCar
+{
+   private boolean rented;
+   private static int availableCount = 0;
+   private static int rentedCount = 0;
+  
+   /**
+      Constructs a rental car.
+   */
+   public RentalCar()
+   { 
+       rented = false;
+       availableCount++;
+   }
+ 
+   /**
+      Get number of cars available.
+      @return count of cars that are available
+   */
+   public static int numAvailable() 
+   {
+      return availableCount;
+   }
+ 
+   /**
+      Get number of cars rented.
+      @return count of cars that are rented
+   */
+   public static int numRented() 
+   {
+      return rentedCount;
+   }
+ 
+   /**
+      Try to rent this car.
+      @return true if the car was successfully rented, false if it was already
+      rented
+   */
+   public boolean rentCar() 
+   {
+      if(rented)
+      return false;
+      else
+   {
+      rented = true;
+      availableCount--;
+      rentedCount++;
+      return true;
+   }
+   }
+ 
+   /**
+      Return rented car.
+      @return true if the car was previously rented and is now returned,
+      false if it was not previously rented
+   */
+   public boolean returnCar()
+   {
+      if(!rented)
+      return false;
+      else
+   {
+       rented = false;
+      availableCount++;
+      rentedCount--;
+      return true;     
+   }
+   }
+}
